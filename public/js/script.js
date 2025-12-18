@@ -1,17 +1,31 @@
-let navbar = document.querySelector('.header .navbar');
-let userBox = document.querySelector('.header .user-box');
+const sidebarToggle = document.querySelector("#sidebar-toggle");
+sidebarToggle.addEventListener("click",function(){
+    document.querySelector("#sidebar").classList.toggle("collapsed");
+});
 
-document.querySelector('#menu-btn').onclick = () => {
-   navbar.classList.toggle('active');
-   userBox.classList.remove('active');
+document.querySelector(".theme-toggle").addEventListener("click",() => {
+    toggleLocalStorage();
+    toggleRootClass();
+});
+
+function toggleRootClass(){
+    const current = document.documentElement.getAttribute('data-bs-theme');
+    const inverted = current == 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-bs-theme',inverted);
 }
 
-document.querySelector('#user-btn').onclick = () => {
-   userBox.classList.toggle('active');
-   navbar.classList.remove('active');
+function toggleLocalStorage(){
+    if(isLight()){
+        localStorage.removeItem("light");
+    }else{
+        localStorage.setItem("light","set");
+    }
 }
 
-window.onscroll = () => {
-   userBox.classList.remove('active');
-   navbar.classList.remove('active');
+function isLight(){
+    return localStorage.getItem("light");
+}
+
+if(isLight()){
+    toggleRootClass();
 }

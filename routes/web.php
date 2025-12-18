@@ -5,12 +5,26 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookController;
 
-Route::get('/', [BookController::class, 'home'])->name('home');
+Route::get('/', [BookController::class, 'index'])->name('index');
+Route::get('/home', [BookController::class, 'home'])->name('home');
+
+Route::get('/shop', [BookController::class, 'shop'])->name('shop');
+Route::get('/search', [BookController::class, 'search'])->name('search');
+
+// Cart Routes (Handled by BookController)
+Route::get('/cart', [BookController::class, 'viewCart'])->name('cart.index');
 Route::post('/add-to-cart', [BookController::class, 'addToCart'])->name('cart.add');
-Route::get('/cart', [BookController::class, 'viewCart'])->name('cart.view');
+Route::post('/cart/update', [BookController::class, 'updateCart'])->name('cart.update');
 Route::get('/cart/delete/{id}', [BookController::class, 'deleteCartItem'])->name('cart.delete');
+Route::get('/cart/empty', [BookController::class, 'emptyCart'])->name('cart.clear');
+
 Route::get('/checkout', [BookController::class, 'checkout'])->name('checkout');
 Route::post('/place-order', [BookController::class, 'placeOrder'])->name('order.place');
+
+Route::get('/about', [BookController::class, 'about'])->name('about');
+Route::get('/contact', [BookController::class, 'contact'])->name('contact');
+Route::post('/contact', [BookController::class, 'sendContact'])->name('contact.send');
+Route::post('/subscribe', [BookController::class, 'subscribe'])->name('subscribe');
 
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
