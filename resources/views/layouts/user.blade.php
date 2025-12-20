@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard | OnlineBookStore</title>
+    <title>User Dashboard | Book Point</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -119,7 +119,7 @@
 <body>
     <div class="wrapper">
         <nav class="sidebar">
-            <a href="#" class="brand">Online<span>BookStore</span></a>
+            <a href="#" class="brand">Book<span>Point</span></a>
             <a href="{{ route('dashboard') }}"><i class="fas fa-th-large me-2"></i> Dashboard</a>
             <a href="#"><i class="fas fa-box me-2"></i> Your Orders</a>
             <a href="{{ route('logout') }}"><i class="fas fa-sign-out-alt me-2"></i> Logout</a>
@@ -134,7 +134,7 @@
                 @yield('user_content')
             </main>
             <footer class="footer">
-                &copy; <a href="#" style="color: #3498db; text-decoration: none;">Online BookStore</a>, All Right Reserved.
+                &copy; <a href="#" style="color: #3498db; text-decoration: none;">Book Point</a>, All Right Reserved.
             </footer>
         </div>
     </div>

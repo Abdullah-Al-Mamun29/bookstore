@@ -74,7 +74,7 @@
         <div class="owl-carousel category-slider">
             @foreach($categories as $category)
             <div class="item p-3">
-                <a href="{{ route('search', ['query' => $category->cat_name]) }}" class="cat-card shadow-sm">
+                <a href="{{ route('category.show', $category->id) }}" class="cat-card shadow-sm">
                     <div class="cat-icon-box">
                         {!! $category->cat_icon !!}
                     </div>
@@ -190,8 +190,10 @@
 </footer>
 
 <style>
-    .text-purple { color: #8e44ad; }
-    
+    .text-purple {
+        color: #8e44ad;
+    }
+
     .banner-section {
         background: url('{{ asset("images/banner-1.jpg") }}');
         background-position: top center;
@@ -217,18 +219,47 @@
     }
 
     .cat-card {
-        display: flex; flex-direction: column; align-items: center; justify-content: center;
-        background: #fff; padding: 40px 20px; border-radius: 12px; text-decoration: none;
-        transition: all 0.3s ease; height: 250px; border: 1px solid #f1f1f1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        padding: 40px 20px;
+        border-radius: 12px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        height: 250px;
+        border: 1px solid #f1f1f1;
     }
+
     .cat-card:hover {
-        background: #8e44ad; transform: translateY(-8px);
+        background: #8e44ad;
+        transform: translateY(-8px);
         box-shadow: 0 10px 20px rgba(142, 68, 173, 0.2) !important;
     }
-    .cat-icon-box { font-size: 50px; color: #8e44ad; margin-bottom: 15px; transition: 0.3s; }
-    .cat-title { color: #333; font-weight: bold; transition: 0.3s; }
-    .cat-card:hover .cat-icon-box, .cat-card:hover .cat-title { color: #fff; }
-    .btn-primary { background: #8e44ad !important; border: none !important; }
+
+    .cat-icon-box {
+        font-size: 50px;
+        color: #8e44ad;
+        margin-bottom: 15px;
+        transition: 0.3s;
+    }
+
+    .cat-title {
+        color: #333;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .cat-card:hover .cat-icon-box,
+    .cat-card:hover .cat-title {
+        color: #fff;
+    }
+
+    .btn-primary {
+        background: #8e44ad !important;
+        border: none !important;
+    }
 
     .product-carousel .btn-primary {
         width: auto !important;
@@ -240,16 +271,19 @@
     }
 
     .footer {
-        background: #1a1e36 !important; 
+        background: #1a1e36 !important;
     }
+
     .text-white-50 {
         color: rgba(255, 255, 255, 0.7) !important;
     }
+
     .text-white-50:hover {
         color: #fff !important;
         padding-left: 10px;
         transition: 0.3s;
     }
+
     .btn-social {
         width: 40px;
         height: 40px;
@@ -257,15 +291,17 @@
         align-items: center;
         justify-content: center;
         color: white;
-        background: #8e44ad; 
+        background: #8e44ad;
         border-radius: 50%;
         text-decoration: none;
         transition: 0.3s;
     }
+
     .btn-social:hover {
         background: white;
         color: #8e44ad;
     }
+
     .copyright {
         margin-top: 2rem;
     }
@@ -274,17 +310,48 @@
 
 @section('scripts')
 <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
         $(".header-carousel").owlCarousel({
-            autoplay: true, smartSpeed: 1000, items: 1, loop: true, dots: true, nav: false
+            autoplay: true,
+            smartSpeed: 1000,
+            items: 1,
+            loop: true,
+            dots: true,
+            nav: false
         });
         $(".category-slider").owlCarousel({
-            loop: true, margin: 20, autoplay: true, dots: true,
-            responsive: { 0: { items: 1 }, 600: { items: 2 }, 1000: { items: 3 } }
+            loop: true,
+            margin: 20,
+            autoplay: true,
+            dots: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 2
+                },
+                1000: {
+                    items: 3
+                }
+            }
         });
         $(".product-carousel").owlCarousel({
-            loop: true, margin: 20, autoplay: true, dots: false,
-            responsive: { 0: { items: 1 }, 600: { items: 2 }, 1000: { items: 4 } }
+            loop: true,
+            margin: 20,
+            autoplay: true,
+            dots: false,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 2
+                },
+                1000: {
+                    items: 4
+                }
+            }
         });
     });
 </script>
