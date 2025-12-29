@@ -21,7 +21,8 @@
 
 ## 🚀 Tech Stack
 
-**Backend:** * Laravel (PHP Framework)
+**Backend:**
+* Laravel (PHP Framework)
 * MySQL Database
 
 **Frontend:**
@@ -40,3 +41,5 @@
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+Developed by Abdullah Al Mamun
