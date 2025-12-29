@@ -86,6 +86,22 @@
     </div>
 </section>
 
+<section class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <img src="{{ asset('images/bird.jpg') }}" alt="Bird" class="img-fluid rounded shadow" style="width: 100%; height: 400px; object-fit: cover;">
+            </div>
+            <div class="col-lg-6">
+                <h1 class="fw-bold mb-4" style="color: #8e44ad;">Discover the Beauty of Nature</h1>
+                <p class="lead">Exploring the world through the wings of nature brings a sense of peace and wonder. Our collection of books on wildlife and environmental beauty will inspire you to look closer at the world around us.</p>
+                <p>Every page tells a story of survival, elegance, and the intricate balance of our ecosystem. Dive into the chronicles of the avian world and beyond.</p>
+                <a href="{{ route('shop') }}" class="btn btn-primary px-4 py-2 mt-3">Read More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
 <div class="container py-5">
     <div class="text-center mb-5">
         <h1 style="color: #8e44ad;">Best Selling Books</h1>
