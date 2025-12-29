@@ -10,6 +10,7 @@ Route::get('/', [BookController::class, 'index'])->name('index');
 Route::get('/home', [BookController::class, 'home'])->name('home');
 
 Route::get('/shop', [BookController::class, 'shop'])->name('shop');
+Route::get('/testimonial', [BookController::class, 'testimonial'])->name('testimonial');
 Route::get('/category/{id}', [BookController::class, 'category'])->name('category.show');
 Route::get('/search', [BookController::class, 'search'])->name('search');
 
@@ -60,4 +61,6 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/reviews', [AdminController::class, 'reviews'])->name('admin.reviews');
     Route::get('/reviews/delete/{id}', [AdminController::class, 'deleteReview'])->name('admin.review.delete');
+    Route::get('/add-review', [BookController::class, 'addReview'])->name('add.review');
+    Route::post('/store-review', [BookController::class, 'storeReview'])->name('store.review');
 });

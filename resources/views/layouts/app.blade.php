@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Point | Laravel</title>
+    <title>Book Point</title>
+
+    <link rel="icon" type="image/png" href="{{ asset('images/icon.png') }}">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
@@ -19,6 +22,13 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .header-1 {
@@ -56,10 +66,6 @@
             padding: 15px 5%;
             display: flex;
             align-items: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
         }
 
         .logo {
@@ -124,20 +130,6 @@
             margin-left: 3px;
         }
 
-        .user-name {
-            font-size: 14px;
-            font-weight: 600;
-            color: #444;
-            text-transform: uppercase;
-            margin-left: 20px;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .user-name:hover {
-            color: var(--purple);
-        }
-
         .alert-custom {
             position: fixed;
             top: 20px;
@@ -176,6 +168,7 @@
                 <a href="{{ route('home') }}">Home</a>
                 <a href="{{ route('about') }}">About</a>
                 <a href="{{ route('shop') }}">Shop</a>
+                <a href="{{ route('testimonial') }}">Testimonial</a>
                 <a href="{{ route('contact') }}">Contact</a>
             </nav>
             <div class="header-icons">
@@ -186,8 +179,8 @@
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-badge">({{ $cart_count }})</span>
                 </a>
-                <a href="{{ route('dashboard') }}" class="user-name">
-                    <i class="fas fa-user me-1"></i> {{ Session::get('user_name') }}
+                <a href="{{ route('dashboard') }}" title="{{ Session::get('user_name') }}">
+                    <i class="fas fa-user"></i>
                 </a>
                 @else
                 <a href="{{ route('login') }}" class="fas fa-user"></a>

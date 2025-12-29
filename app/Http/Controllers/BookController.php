@@ -51,6 +51,37 @@ class BookController extends Controller
         return view('shop', compact('products', 'categories'));
     }
 
+    public function testimonial()
+    {
+        $reviews = DB::table('review')->get();
+        return view('testimonial', compact('reviews'));
+    }
+
+    public function addReview()
+    {
+        if (!Session::has('user_id')) {
+            return redirect()->route('login');
+        }
+        return view('add_review');
+    }
+
+    public function storeReview(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'review' => 'required|string'
+        ]);
+
+        DB::table('review')->insert([
+            'name' => $request->name,
+            'review' => $request->review,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        return redirect()->route('testimonial')->with('message', 'Review submitted successfully!');
+    }
+
     public function addToCart(Request $request)
     {
         if (!Session::has('user_id')) {

@@ -62,6 +62,38 @@
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
+
+        .welcome-banner {
+            background: #001529;
+            color: white;
+            padding: 0 0 0 50px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            overflow: hidden;
+            min-height: 200px;
+        }
+
+        .welcome-banner h2 {
+            font-size: 35px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .banner-img-container {
+            height: 200px;
+            width: auto;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .banner-img-container img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
     </style>
 </head>
 
@@ -75,8 +107,18 @@
 
             <main class="content px-3 py-4">
                 <div class="container-fluid">
+
                     <div class="mb-4 text-center">
-                        <h2 class="fw-bold text-uppercase">User Dashboard</h2>
+                        <h2 class="fw-bold text-uppercase" style="font-size: 32px;">User Dashboard</h2>
+                    </div>
+
+                    <div class="welcome-banner">
+                        <div>
+                            <h2>Welcome {{ Session::get('user_name') }}</h2>
+                        </div>
+                        <div class="banner-img-container d-none d-md-block">
+                            <img src="{{ asset('images/customer-support.jpg') }}" alt="User Icon">
+                        </div>
                     </div>
 
                     <div class="row g-4 justify-content-center">
@@ -98,13 +140,6 @@
                                 <p class="text-muted text-uppercase fw-bold mb-0">Orders Placed</p>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="text-center mt-5">
-                        <form action="{{ route('logout') }}" method="GET">
-                            @csrf
-                            <button type="submit" class="btn btn-danger btn-lg px-5 py-2 rounded-0 text-uppercase fw-bold">Logout</button>
-                        </form>
                     </div>
                 </div>
             </main>
